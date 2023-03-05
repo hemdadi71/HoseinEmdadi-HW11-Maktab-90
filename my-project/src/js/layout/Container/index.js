@@ -1,38 +1,18 @@
 /* eslint-disable no-unused-vars */
 import El from '../../library/El'
 import * as bootstrap from 'bootstrap'
+import Nav from '../Nav'
+import Table from '../Table'
+import Sidebar from '../Sidebar'
+import Modal from '../Modal'
+import Footer from '../Footer'
+import 'flowbite';
 // ;<div className=" align-items-center justify-align-content-end"></div>
 const Container = () => {
   return El({
-    element: 'div',
-    className: 'bg-header text-white dropdown',
-    child: [
-      El({
-        element: 'select',
-        className: 'form-select form-select-lg mb-3 w-25 rounded-1 bg-red-500',
-        id: '',
-        child: [
-          El({
-            element: 'option',
-            href: '#',
-            child: 'Action',
-            onclick: function () {
-              this.parentElement.previousElementSibling.innerText = `${this.innerText}`
-            },
-          }),
-          El({
-            element: 'option',
-            href: '#',
-            child: 'Another action',
-          }),
-          El({
-            element: 'option',
-            href: '#',
-            child: 'Action',
-          }),
-        ],
-      }),
-    ],
+    element: 'main',
+    className: '',
+    child: [Nav(), Table(), Footer(), Sidebar(), Modal()],
   })
 }
 
