@@ -5,6 +5,7 @@
     "prettier": "^2.8.4"
   },
   "dependencies": {
+    "flowbite": "^1.6.3",
     "vite-jsconfig-paths": "^2.0.1"
   }
 }
