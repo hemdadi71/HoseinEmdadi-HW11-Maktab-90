@@ -1,4 +1,4 @@
-import El from '@/library/El'
+import El from '../../../library/El'
 
 const variants = {
   contained: 'bg-blue-600 text-slate-100 font-bold',

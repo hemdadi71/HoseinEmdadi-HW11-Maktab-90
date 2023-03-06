@@ -1,4 +1,5 @@
 import El from '../../../../library/El'
+
 const Box = ({ child, bgColor, txtColor, densiy }) => {
   switch (child) {
     case 'Doing':
@@ -11,21 +12,21 @@ const Box = ({ child, bgColor, txtColor, densiy }) => {
     case 'High':
       bgColor = 'red'
       densiy = 500
-      txtColor = 'gray'
+      txtColor = 'white'
       break
     case 'Low':
       bgColor = 'gray'
-      densiy = 300
+      densiy = 200
       txtColor = 'black'
       break
     case 'Done':
       bgColor = 'green'
       densiy = 500
-      txtColor = 'gray'
+      txtColor = 'white'
   }
   return El({
     element: 'span',
-    className: `rounded-full bg-${bgColor}-${densiy} px-3 py-1 text-${txtColor}-100 `,
+    className: `rounded-full bg-${bgColor}-${densiy} px-3 py-1 text-${txtColor} `,
     child: `${child}`,
   })
 }

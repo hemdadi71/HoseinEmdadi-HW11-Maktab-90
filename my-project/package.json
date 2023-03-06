@@ -29,7 +29,9 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
+    "akbari-react-date-picker": "^4.1.0",
     "bootstrap": "^5.2.3",
-    "flowbite": "^1.6.3"
+    "flowbite": "^1.6.3",
+    "persian-datepicker": "^1.2.0"
   }
 }

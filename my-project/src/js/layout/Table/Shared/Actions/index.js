@@ -1,6 +1,6 @@
 import { svg } from '../../../../../assets/svgs/Svg'
 import El from '../../../../library/El'
-
+import { handleDeleteItem } from '../../../Function'
 const Actions = () => {
   const classes = `w-[30px] h-[30px] flex items-center justify-center rounded-md cursor-pointer`
 
@@ -12,6 +12,7 @@ const Actions = () => {
         element: 'span',
         className: `${classes} bg-red-500`,
         innerHTML: svg.trash,
+        onclick: handleDeleteItem,
       }),
       El({
         element: 'span',

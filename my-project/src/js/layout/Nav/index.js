@@ -1,7 +1,14 @@
 import El from '../../library/El'
 import { svg } from '../../../assets/svgs/Svg'
 import SearchInput from './Shared/SearchInput/index'
+
 const Nav = () => {
+  function showModal() {
+    const modal = document.getElementById('modal')
+    const modalBackground = document.getElementById('modal-background')
+    modal.classList.remove('hidden')
+    modalBackground.classList.remove('hidden')
+  }
   return El({
     element: 'div',
     className: 'bg-header flex justify-between',
@@ -28,13 +35,14 @@ const Nav = () => {
           SearchInput(),
           El({
             element: 'div',
-            className:'cursor-pointer',
+            className: 'cursor-pointer',
             innerHTML: svg.filter,
           }),
           El({
             element: 'div',
-            className:'cursor-pointer',
+            className: 'cursor-pointer',
             innerHTML: svg.add,
+            onclick: showModal,
           }),
         ],
       }),

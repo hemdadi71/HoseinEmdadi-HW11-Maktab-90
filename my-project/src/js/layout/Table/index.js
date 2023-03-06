@@ -1,6 +1,4 @@
 import El from '../../library/El'
-import Tbody from './Tbody'
-
 const Table = () => {
   return El({
     element: 'table',
@@ -37,7 +35,10 @@ const Table = () => {
           }),
         ],
       }),
-      Tbody(),
+      El({
+        element: 'tbody',
+        id: 'tbody',
+      }),
     ],
   })
 }

@@ -1,1 +1,9 @@
-
+.rotate {
+  transform: rotate(180deg);
+}
+.transition {
+  transition: all 0.8s;
+}
+.hide {
+  display: none;
+}
