@@ -1,7 +1,7 @@
 import { svg } from '../../../../../assets/svgs/Svg'
 import El from '../../../../library/El'
 
-const Select = ({title,item1, item2, item3,item4}) => {
+const Select = ({ title, item1, item2, item3, item4, id }) => {
   function hide() {
     this.parentElement.classList.add('hide')
     this.parentElement.previousElementSibling.childNodes[1].innerHTML =
@@ -9,11 +9,15 @@ const Select = ({title,item1, item2, item3,item4}) => {
     this.parentElement.previousElementSibling.childNodes[0].classList.remove(
       'rotate'
     )
+    this.parentElement.previousElementSibling.classList.remove('border-violet')
+    this.parentElement.previousElementSibling.classList.add('border')
   }
   // .............................................
   function show(e) {
     this.parentElement.childNodes[1].classList.toggle('hide')
     this.childNodes[0].classList.toggle('rotate')
+    this.classList.remove('border')
+    this.classList.add('border-violet')
   }
   // ............................................
   return El({
@@ -24,7 +28,7 @@ const Select = ({title,item1, item2, item3,item4}) => {
         element: 'div',
         id: 'div',
         className:
-          'w-[10rem] h-[2.5rem] border rounded-md relative flex items-center cursor-pointer',
+          'w-[10rem] h-[2.5rem] border rounded-md relative flex items-center cursor-pointer ',
         onclick: show,
         child: [
           El({
@@ -34,7 +38,7 @@ const Select = ({title,item1, item2, item3,item4}) => {
           }),
           El({
             element: 'p',
-            id:'title',
+            id: `${id}`,
             className: 'text-md pl-4',
             child: `${title}`,
           }),
@@ -46,7 +50,8 @@ const Select = ({title,item1, item2, item3,item4}) => {
         child: [
           El({
             element: 'li',
-            className: 'py-1 pl-4 cursor-pointer pointer-events-none text-gray-400',
+            className:
+              'py-1 pl-4 cursor-pointer pointer-events-none text-gray-400',
             child: `${item1}`,
             onclick: hide,
           }),

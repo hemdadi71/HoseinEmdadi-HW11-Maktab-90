@@ -1,6 +1,7 @@
 import { svg } from '../../../../../assets/svgs/Svg'
 import El from '../../../../library/El'
-import { handleDeleteItem } from '../../../Function'
+import { handleDeleteItem, handleEditItem, handleShowItem } from '../../../Function'
+
 const Actions = () => {
   const classes = `w-[30px] h-[30px] flex items-center justify-center rounded-md cursor-pointer`
 
@@ -18,11 +19,13 @@ const Actions = () => {
         element: 'span',
         className: `${classes} bg-blue-500`,
         innerHTML: svg.edit,
+        onclick:handleEditItem
       }),
       El({
         element: 'span',
         className: `${classes} bg-gray-500`,
         innerHTML: svg.view,
+        onclick:handleShowItem
       }),
     ],
   })

@@ -7,7 +7,8 @@ const TextArea = () => {
     child: [
       El({
         element: 'textarea',
-        className:'rounded-md border w-[36rem] h-[8rem]',
+        id:'details',
+        className:'rounded-md w-[36rem] h-[8rem] border-1 border-gray-200 focus:border-violet-800  shadow-none',
         placeholder:'Details (Optional)'
       }),
     ],

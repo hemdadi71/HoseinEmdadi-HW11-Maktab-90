@@ -6,7 +6,8 @@ const Date = () => {
     child: [
       El({
         element: 'input',
-        className:'rounded-md border',
+        id:'date',
+        className:'rounded-md border-1 border-gray-200 focus:border-violet-800  shadow-none',
         type: 'date',
       }),
     ],

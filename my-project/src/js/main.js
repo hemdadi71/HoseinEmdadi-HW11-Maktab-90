@@ -1,11 +1,11 @@
 import '../scss/styles.scss'
 import App from './App'
-import '../../src/style.css'
 import '../../src/index.css'
+import '../../src/style.css'
 import 'flowbite'
-// import { localRenderList } from '.'
+import { localRenderList } from './layout/Function'
 const root = document.getElementById('app')
 
 root.append(App())
-// localRenderList()
+localRenderList()
 

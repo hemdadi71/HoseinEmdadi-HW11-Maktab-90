@@ -13,7 +13,7 @@ const Modal = () => {
       El({
         element: 'div',
         id: 'modal',
-        className: `fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[40rem] rounded-md bg-white z-20 hidden`,
+        className: `fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[40rem] rounded-md bg-white z-20 hidden relative`,
         child: [
           El({
             element: 'h1',
@@ -22,6 +22,7 @@ const Modal = () => {
           }),
           El({
             element: 'form',
+            id: 'form',
             child: [
               El({
                 element: 'div',
@@ -30,9 +31,11 @@ const Modal = () => {
               }),
               El({
                 element: 'div',
+                id: 'selectBox',
                 className: 'mt-4 mb-3 px-[2rem] flex gap-5',
                 child: [
                   Select({
+                    id: 'priorityTitle',
                     title: 'Priority',
                     item1: 'priority',
                     item2: 'Low',
@@ -40,6 +43,7 @@ const Modal = () => {
                     item4: 'High',
                   }),
                   Select({
+                    id: 'statusTitle',
                     title: 'Status',
                     item1: 'status',
                     item2: 'Todo',
@@ -56,7 +60,7 @@ const Modal = () => {
               }),
               El({
                 element: 'div',
-                className: 'flex justify-between mt-3 mb-3 px-8',
+                className: 'flex justify-between mt-3 pb-4 px-8',
                 child: [
                   Button({
                     child: 'CANCEL',
@@ -65,11 +69,17 @@ const Modal = () => {
                   }),
                   Button({
                     child: 'SAVE',
+                    id: 'submit',
                     onclick: handleData,
                   }),
                 ],
               }),
             ],
+          }),
+          El({
+            element: 'div',
+            id: 'modalDisable',
+            className: 'absolute bg-gray-700 h-full w-full top-0 left-0 rounded-md z-30 bg-opacity-20 hidden',
           }),
         ],
       }),
@@ -77,11 +87,16 @@ const Modal = () => {
         element: 'div',
         id: 'modal-background',
         onclick: function () {
+          const submit = document.getElementById('submit')
+          const form = document.getElementById('form')
           this.classList.add('hidden')
           this.parentElement.childNodes[0].classList.add('hidden')
+          submit.innerText = 'SAVE'
+          form.reset()
         },
         className: `w-full h-full absolute bg-gray-500 top-0 left-0 z-10 bg-opacity-50 hidden`,
       }),
+      
     ],
   })
 }

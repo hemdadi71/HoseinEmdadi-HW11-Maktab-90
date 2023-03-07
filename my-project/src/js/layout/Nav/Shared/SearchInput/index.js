@@ -1,5 +1,6 @@
 import { svg } from '../../../../../assets/svgs/Svg'
 import El from '../../../../library/El'
+import { handleSearch } from '../../../Function'
 const SearchInput = () => {
   return El({
     element: 'div',
@@ -10,6 +11,7 @@ const SearchInput = () => {
         className:
           'rounded-sm bg-gray-200 bg-opacity-40 h-7 w-48 outline-none pl-10 text-white placeholder-gray-200',
         placeholder: 'Search',
+        onkeyup:handleSearch,
       }),
       El({
         element: 'div',
