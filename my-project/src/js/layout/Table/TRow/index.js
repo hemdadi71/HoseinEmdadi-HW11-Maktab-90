@@ -1,11 +1,15 @@
 /* eslint-disable prefer-const */
+import { doc } from 'prettier'
 import El from '../../../library/El'
 import Actions from '../Shared/Actions'
 import Box from '../Shared/Box'
 // eslint-disable-next-line no-unused-vars
+
+
 const renderList = state => {
   const tbody = document.getElementById('tbody')
   tbody.innerHTML = ''
+
   state.map(item =>
     tbody.append(
       El({

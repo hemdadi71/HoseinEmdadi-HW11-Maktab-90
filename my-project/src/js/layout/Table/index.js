@@ -9,6 +9,7 @@ const Table = () => {
         child: [
           El({
             element: 'tr',
+            className:'border',
             child: [
               El({
                 element: 'td',

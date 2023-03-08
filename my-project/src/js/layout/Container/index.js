@@ -6,13 +6,14 @@ import Table from '../Table'
 import Sidebar from '../Sidebar'
 import Modal from '../Modal'
 import Footer from '../Footer'
-import 'flowbite';
-// ;<div className=" align-items-center justify-align-content-end"></div>
+import 'flowbite'
+import ModalBG from '../ModalBG'
+
 const Container = () => {
   return El({
     element: 'main',
-    className: '',
-    child: [Nav(), Table(), Footer(), Sidebar(), Modal()],
+    className: 'h-[100vh]',
+    child: [Nav(), Table(), Footer(), Sidebar(), Modal(), ModalBG()],
   })
 }
 

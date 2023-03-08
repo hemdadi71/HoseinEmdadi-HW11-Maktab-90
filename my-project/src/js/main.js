@@ -1,6 +1,6 @@
 import '../scss/styles.scss'
-import App from './App'
 import '../../src/index.css'
+import App from './App'
 import '../../src/style.css'
 import 'flowbite'
 import { localRenderList } from './layout/Function'

@@ -2,6 +2,7 @@ import El from '../../library/El'
 import { svg } from '../../../assets/svgs/Svg'
 import SearchInput from './Shared/SearchInput/index'
 import { showModal } from '../Function'
+import { handleShowSidebar } from '../Sidebar'
 const Nav = () => {
   
   return El({
@@ -32,6 +33,7 @@ const Nav = () => {
             element: 'div',
             className: 'cursor-pointer',
             innerHTML: svg.filter,
+            onclick:handleShowSidebar
           }),
           El({
             element: 'div',

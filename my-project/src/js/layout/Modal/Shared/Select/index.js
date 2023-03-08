@@ -1,18 +1,18 @@
 import { svg } from '../../../../../assets/svgs/Svg'
 import El from '../../../../library/El'
+import { hide } from '../../../Function'
 
-const Select = ({ title, item1, item2, item3, item4, id }) => {
-  function hide() {
-    this.parentElement.classList.add('hide')
-    this.parentElement.previousElementSibling.childNodes[1].innerHTML =
-      this.innerHTML
-    this.parentElement.previousElementSibling.childNodes[0].classList.remove(
-      'rotate'
-    )
-    this.parentElement.previousElementSibling.classList.remove('border-violet')
-    this.parentElement.previousElementSibling.classList.add('border')
-  }
-  // .............................................
+const Select = ({
+  title,
+  item1,
+  item2,
+  item3,
+  item4,
+  id,
+  width,
+  style,
+  onclick,
+}) => {
   function show(e) {
     this.parentElement.childNodes[1].classList.toggle('hide')
     this.childNodes[0].classList.toggle('rotate')
@@ -22,13 +22,12 @@ const Select = ({ title, item1, item2, item3, item4, id }) => {
   // ............................................
   return El({
     element: 'div',
-    className: 'relative w-[10rem]',
+    className: `relative w-[${width}]`,
     child: [
       El({
         element: 'div',
         id: 'div',
-        className:
-          'w-[10rem] h-[2.5rem] border rounded-md relative flex items-center cursor-pointer ',
+        className: `w-[${width}] h-[2.5rem] border rounded-md relative flex items-center cursor-pointer`,
         onclick: show,
         child: [
           El({
@@ -46,12 +45,13 @@ const Select = ({ title, item1, item2, item3, item4, id }) => {
       }),
       El({
         element: 'ul',
-        className: 'rounded-b-md shadow-md absolute bg-white w-full pb-3 hide',
+        id: 'selectUl',
+        className:
+          'rounded-b-md shadow-md absolute z-10 bg-white w-full pb-3 hide',
         child: [
           El({
             element: 'li',
-            className:
-              'py-1 pl-4 cursor-pointer pointer-events-none text-gray-400',
+            className: `py-1 pl-4 cursor-pointer hover:bg-violet-300 ${style}`,
             child: `${item1}`,
             onclick: hide,
           }),
@@ -59,7 +59,7 @@ const Select = ({ title, item1, item2, item3, item4, id }) => {
             element: 'li',
             className: 'py-1 pl-4 hover:bg-violet-300 cursor-pointer',
             child: `${item2}`,
-            onclick: hide,
+            onclick,
           }),
           El({
             element: 'li',

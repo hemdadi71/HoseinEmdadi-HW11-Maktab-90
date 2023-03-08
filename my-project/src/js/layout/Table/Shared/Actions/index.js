@@ -7,7 +7,7 @@ const Actions = () => {
 
   return El({
     element: 'td',
-    className: 'flex justify-center gap-2 pt-[13px]',
+    className: 'flex justify-center gap-2 pt-[13px] border-b pb-2',
     child: [
       El({
         element: 'span',

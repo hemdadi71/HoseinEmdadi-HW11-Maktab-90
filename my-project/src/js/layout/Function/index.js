@@ -157,3 +157,80 @@ export function handleShowItem() {
   details.value = selectedItem.details
   modalDisable.classList.remove('hidden')
 }
+// ...........................................................
+export function hide(e) {
+  this.parentElement.classList.add('hide')
+  this.parentElement.previousElementSibling.childNodes[1].innerHTML =
+    this.innerHTML
+  this.parentElement.previousElementSibling.childNodes[0].classList.remove(
+    'rotate'
+  )
+  this.parentElement.previousElementSibling.classList.remove('border-violet')
+  this.parentElement.previousElementSibling.classList.add('border')
+}
+// ...................................................................
+export function handleFilter() {
+  if (this.value === 'All') {
+    renderList(Data)
+  }
+  if (this.value === 'Low') {
+    const filterItem = Data.filter(item => item.priority === 'Low')
+    renderList(filterItem)
+  }
+  if (this.value === 'Medium') {
+    const filterItem = Data.filter(item => item.priority === 'Medium')
+    renderList(filterItem)
+  }
+  if (this.value === 'High') {
+    const filterItem = Data.filter(item => item.priority === 'High')
+    renderList(filterItem)
+  }
+  // ..................................................................
+  if (this.value === 'Todo') {
+    const filterItem = Data.filter(item => item.status === 'Todo')
+    renderList(filterItem)
+  }
+  if (this.value === 'Doing') {
+    const filterItem = Data.filter(item => item.status === 'Doing')
+    renderList(filterItem)
+  }
+  if (this.value === 'Done') {
+    const filterItem = Data.filter(item => item.status === 'Done')
+    renderList(filterItem)
+  }
+}
+// ...........................................................................
+let counter = 1
+function page(path) {
+  const page = document.getElementById('page')
+  const tbody = document.getElementById('tbody')
+  const h1 = document.createElement('h1')
+  h1.className='text-xl text-center'
+  tbody.innerHTML = ''
+  
+  page.innerHTML = ''
+  switch (path) {
+    case '/1':
+      page.innerHTML = '1-3 of 3'
+      renderList(Data)
+      break
+    case '/2':
+      page.innerHTML = '2-3 of 3'
+      h1.innerHTML = 'PAGE-2'
+      tbody.append(h1)
+      break
+    case '/3':
+      page.innerHTML = '3-3 of 3'
+      h1.innerHTML = 'PAGE-3'
+      tbody.append(h1)
+      break
+  }
+}
+export function minusPage() {
+  history.pushState(null, null, `/${counter > 1 ? (counter -= 1) : 1}`)
+  page(location.pathname)
+}
+export function plusPage() {
+  history.pushState(null, null, `/${counter < 3 ? (counter += 1) : 3}`)
+  page(location.pathname)
+}
